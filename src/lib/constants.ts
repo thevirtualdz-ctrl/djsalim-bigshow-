@@ -21,9 +21,9 @@ export const SITE_CONFIG = {
 // ============================================================
 
 export const PUBLIC_NAV_ITEMS = [
-  { label: 'À Propos', href: '/a-propos' },
   { label: 'Prestations', href: '/services' },
   { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'À Propos', href: '/a-propos' },
 ] as const;
 
 export const FOOTER_NAV_ITEMS = [
