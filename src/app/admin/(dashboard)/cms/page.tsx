@@ -7,6 +7,7 @@ import { Plus, Trash2, Edit, Upload, Save, Image as ImageIcon, X } from 'lucide-
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
+import imageCompression from 'browser-image-compression';
 
 export default function CMSPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -56,15 +57,30 @@ export default function CMSPage() {
     setUploadingImage(true);
 
     const file = e.target.files[0];
+    
+    // Compression de l'image
+    let fileToUpload = file;
+    try {
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+      fileToUpload = await imageCompression(file, options);
+    } catch (error) {
+      console.error('Erreur de compression:', error);
+      // Fallback: on continue avec le fichier original
+    }
+
     const supabase = createClient();
     // Unique name
-    const fileExt = file.name.split('.').pop();
+    const fileExt = fileToUpload.name.split('.').pop() || 'jpg';
     const fileName = `${Math.random().toString(36).substring(2, 15)}_${Date.now()}.${fileExt}`;
     const filePath = `projects/${fileName}`;
 
     const { error: uploadError } = await supabase.storage
       .from('media') // Assurez-vous que le bucket "media" existe et est public
-      .upload(filePath, file);
+      .upload(filePath, fileToUpload);
 
     if (uploadError) {
       toast.error("Erreur lors de l'upload de l'image.");
