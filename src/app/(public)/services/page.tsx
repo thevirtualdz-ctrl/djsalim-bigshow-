@@ -11,6 +11,33 @@ const iconMap: Record<string, any> = {
   Music, Speaker, Sparkles, Heart, Mic, PartyPopper, Star, Shield, Disc, Zap
 };
 
+const DEFAULT_SERVICES = [
+  {
+    id: 'mariage',
+    title: 'Mariages d\'Exception',
+    description: "Parce que votre mariage est le plus beau jour de votre vie, la musique doit être parfaite. J'assure une prestation sur-mesure, de la cérémonie laïque jusqu'au bout de la nuit.\n\nCe qui est inclus :\n- Rendez-vous préparatoires\n- Sonorisation de la cérémonie et du vin d'honneur\n- Éclairage architectural de la salle\n- Animation musicale jusqu'à l'aube\n- Machine à étincelles froides (option)\n- Fumée lourde pour l'ouverture de bal (option)",
+    icon: 'Sparkles',
+    price: 'Sur devis',
+    display_order: -3
+  },
+  {
+    id: 'corporate',
+    title: 'Événements Corporate',
+    description: "Donnez une dimension Premium à vos soirées d'entreprise, lancements de produits, séminaires ou galas. Une programmation musicale élégante et adaptée à votre image de marque.\n\nCe qui est inclus :\n- Sonorisation adaptée à la taille de l'audience\n- Microphones sans fil pour les discours\n- Musique d'ambiance lounge/chill pendant le cocktail\n- Set DJ dynamique pour la soirée dansante\n- Éclairage scénique et mise en valeur visuelle\n- Régie technique complète",
+    icon: 'Zap',
+    price: 'Sur devis',
+    display_order: -2
+  },
+  {
+    id: 'club',
+    title: 'Clubbing & Festivals',
+    description: "Un set DJ explosif et pointu pour faire trembler le dancefloor. Spécialisé dans les musiques urbaines, électroniques et généralistes avec des transitions millimétrées.\n\nCe qui est inclus :\n- DJ Set de 1h30 à 4h\n- Mix Live et Mashups exclusifs\n- Capacité à s'adapter au public en temps réel\n- Forte interaction avec la foule\n- Styles: House, EDM, Hip-Hop, Afrobeats, Pop\n- Possibilité de showcase",
+    icon: 'Disc',
+    price: 'Sur devis',
+    display_order: -1
+  }
+];
+
 const EQUIPMENT = [
   {
     category: "Sonorisation",
@@ -51,7 +78,9 @@ export default function ServicesPage() {
         .order('display_order', { ascending: true });
 
       if (data) {
-        setServices(data);
+        setServices([...DEFAULT_SERVICES, ...data]);
+      } else {
+        setServices(DEFAULT_SERVICES);
       }
       setLoading(false);
     }
