@@ -37,8 +37,8 @@ export async function POST(req: Request) {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/paiement/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/paiement?canceled=true`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://djsalim-bigshow.vercel.app'}/paiement/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://djsalim-bigshow.vercel.app'}/paiement?canceled=true`,
     });
 
     return NextResponse.json({ url: session.url });

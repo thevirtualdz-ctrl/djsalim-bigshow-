@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: 'DJ de Prestige & Ingénieur Son — Événements d\'Exception en Algérie',
   description:
     'DJ de prestige et ingénieur du son basé en Algérie. Prestations haut de gamme sur-mesure pour mariages, galas, événements corporate et soirées privées.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://djsalim-bigshow.vercel.app',
   locale: 'fr_FR',
   language: 'fr',
 } as const;

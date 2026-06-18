@@ -113,9 +113,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "DJ Salim BigShow Pro",
-              "image": "${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.jpg",
+              "image": "${process.env.NEXT_PUBLIC_SITE_URL || 'https://djsalim-bigshow.vercel.app'}/og-image.jpg",
               "description": "DJ professionnel en Algérie (Alger et déplacements). Spécialiste de l'animation de mariages, soirées, et événements privés.",
-              "url": "${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}",
+              "url": "${process.env.NEXT_PUBLIC_SITE_URL || 'https://djsalim-bigshow.vercel.app'}",
               "telephone": "06 00 00 00 00",
               "address": {
                 "@type": "PostalAddress",

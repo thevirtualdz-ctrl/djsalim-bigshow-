@@ -94,8 +94,8 @@ export function Footer() {
             <Link href="/mentions-legales" className="text-xs text-muted-foreground hover:text-primary transition-colors">
               Mentions Légales
             </Link>
-            <Link href="/confidentialite" className="text-xs text-muted-foreground hover:text-primary transition-colors">
-              Politique de Confidentialité
+            <Link href="/cgv" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+              CGV
             </Link>
           </div>
         </div>
