@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { SettingsProvider } from '@/components/providers/SettingsProvider';
 import { Toaster } from 'sonner';
+import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
 import './globals.css';
 
@@ -127,6 +128,7 @@ export default function RootLayout({
             }
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   );

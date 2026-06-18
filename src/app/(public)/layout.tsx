@@ -2,6 +2,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { StickyAudioPlayer } from '@/components/StickyAudioPlayer';
 import { SettingsProvider } from '@/components/providers/SettingsProvider';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 
 export default function PublicLayout({
   children,
@@ -15,6 +16,7 @@ export default function PublicLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyAudioPlayer />
+        <WhatsAppButton />
       </div>
     </SettingsProvider>
   );

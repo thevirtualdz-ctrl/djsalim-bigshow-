@@ -19,8 +19,13 @@ export async function updateSession(request: NextRequest) {
     !supabaseAnonKey ||
     supabaseUrl.includes('placeholder')
   ) {
-    // Supabase n'est pas configuré — laisser passer toutes les requêtes
-    // En mode développement sans Supabase, on ne protège pas les routes
+    // SECURITY FIX: Si Supabase n'est pas configuré, bloquer l'accès à /admin
+    if (request.nextUrl.pathname.startsWith('/admin') && request.nextUrl.pathname !== '/admin/login') {
+      const loginUrl = request.nextUrl.clone();
+      loginUrl.pathname = '/admin/login';
+      loginUrl.searchParams.set('error', 'Configuration Supabase manquante');
+      return NextResponse.redirect(loginUrl);
+    }
     return supabaseResponse;
   }
 
