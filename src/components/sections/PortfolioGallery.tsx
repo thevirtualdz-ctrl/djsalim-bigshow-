@@ -56,9 +56,30 @@ export function PortfolioGallery() {
   );
 
   return (
-    <section className="px-4 pb-24">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 relative overflow-hidden" id="portfolio">
+      <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
+      <div className="max-w-7xl mx-auto px-4">
         
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold uppercase tracking-widest text-primary mb-3"
+          >
+            Galerie
+          </motion.h2>
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold"
+          >
+            Mon <span className="text-gradient-gold">Portfolio</span>
+          </motion.h3>
+        </div>
+
         {/* Filtres */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {CATEGORIES.map((category) => (
