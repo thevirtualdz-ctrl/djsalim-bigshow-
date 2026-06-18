@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SITE_CONFIG, PUBLIC_NAV_ITEMS } from '@/lib/constants';
+import { SITE_CONFIG, FOOTER_NAV_ITEMS } from '@/lib/constants';
 import { Music2, Mail, Phone, MapPin, Globe, Video, Camera } from 'lucide-react';
 
 export function Footer() {
@@ -38,7 +38,7 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-lg mb-6 text-white">Navigation</h4>
             <ul className="space-y-3">
-              {PUBLIC_NAV_ITEMS.map((item) => (
+              {FOOTER_NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link 
                     href={item.href}
