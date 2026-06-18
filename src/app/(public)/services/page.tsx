@@ -1,57 +1,15 @@
-import type { Metadata } from 'next';
-import { Music, Disc, Speaker, Zap, Sparkles, Mic2 } from 'lucide-react';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Music, Speaker, Sparkles, Heart, Mic, PartyPopper, Star, Shield, HelpCircle, Disc, Zap, Mic2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
 
-export const metadata: Metadata = {
-  title: 'Services & Prestations | DJ Salim BigShow Pro',
-  description: 'Découvrez mes prestations sur mesure pour vos mariages, soirées privées et événements corporate. Sonorisation premium et light show exclusif.',
+// Map des icônes Lucide disponibles pour les services
+const iconMap: Record<string, any> = {
+  Music, Speaker, Sparkles, Heart, Mic, PartyPopper, Star, Shield, Disc, Zap
 };
-
-const SERVICES = [
-  {
-    id: 'mariage',
-    title: 'Mariages d\'Exception',
-    description: "Parce que votre mariage est le plus beau jour de votre vie, la musique doit être parfaite. J'assure une prestation sur-mesure, de la cérémonie laïque jusqu'au bout de la nuit.",
-    icon: <Sparkles className="w-8 h-8 text-primary" />,
-    features: [
-      "Rendez-vous préparatoires",
-      "Sonorisation de la cérémonie et du vin d'honneur",
-      "Éclairage architectural de la salle",
-      "Animation musicale jusqu'à l'aube",
-      "Machine à étincelles froides (option)",
-      "Fumée lourde pour l'ouverture de bal (option)"
-    ]
-  },
-  {
-    id: 'corporate',
-    title: 'Événements Corporate',
-    description: "Donnez une dimension Premium à vos soirées d'entreprise, lancements de produits, séminaires ou galas. Une programmation musicale élégante et adaptée à votre image de marque.",
-    icon: <Zap className="w-8 h-8 text-primary" />,
-    features: [
-      "Sonorisation adaptée à la taille de l'audience",
-      "Microphones sans fil pour les discours",
-      "Musique d'ambiance lounge/chill pendant le cocktail",
-      "Set DJ dynamique pour la soirée dansante",
-      "Éclairage scénique et mise en valeur visuelle",
-      "Régie technique complète"
-    ]
-  },
-  {
-    id: 'club',
-    title: 'Clubbing & Festivals',
-    description: "Un set DJ explosif et pointu pour faire trembler le dancefloor. Spécialisé dans les musiques urbaines, électroniques et généralistes avec des transitions millimétrées.",
-    icon: <Disc className="w-8 h-8 text-primary" />,
-    features: [
-      "DJ Set de 1h30 à 4h",
-      "Mix Live et Mashups exclusifs",
-      "Capacité à s'adapter au public en temps réel",
-      "Forte interaction avec la foule",
-      "Styles: House, EDM, Hip-Hop, Afrobeats, Pop",
-      "Possibilité de showcase"
-    ]
-  }
-];
 
 const EQUIPMENT = [
   {
@@ -71,7 +29,35 @@ const EQUIPMENT = [
   }
 ];
 
+type Service = {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  price: string;
+  display_order: number;
+};
+
 export default function ServicesPage() {
+  const [services, setServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchServices() {
+      const supabase = createClient();
+      const { data, error } = await supabase
+        .from('services')
+        .select('*')
+        .order('display_order', { ascending: true });
+
+      if (data) {
+        setServices(data);
+      }
+      setLoading(false);
+    }
+    fetchServices();
+  }, []);
+
   return (
     <main className="min-h-screen pt-32 pb-24">
       {/* Header Section */}
@@ -89,70 +75,74 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Détaillés */}
+      {/* Services Détaillés dynamiques */}
       <section className="px-4 mb-24 relative">
         <div className="max-w-7xl mx-auto space-y-16 lg:space-y-32">
-          {SERVICES.map((service, index) => (
-            <div 
-              key={service.id} 
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}
-            >
-              {/* Image / Visuel */}
-              <div className="w-full lg:w-1/2">
-                <div className="aspect-square relative rounded-3xl overflow-hidden glass border border-white/10 group">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                  <div className="absolute inset-0 flex items-center justify-center text-primary/20 group-hover:scale-110 transition-transform duration-700">
-                    <Music className="w-48 h-48" />
+          {loading ? (
+             <div className="flex justify-center py-20">
+               <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+             </div>
+          ) : services.length === 0 ? (
+             <div className="text-center py-20 text-zinc-500">
+               Les prestations sont en cours de mise à jour.
+             </div>
+          ) : (
+            services.map((service, index) => {
+              const Icon = iconMap[service.icon] || HelpCircle;
+              return (
+                <div 
+                  key={service.id} 
+                  className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}
+                >
+                  <div className="w-full lg:w-1/2">
+                    <div className="aspect-square relative rounded-3xl overflow-hidden glass border border-white/10 group">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                      <div className="absolute inset-0 flex items-center justify-center text-primary/20 group-hover:scale-110 transition-transform duration-700">
+                        <Icon className="w-48 h-48" />
+                      </div>
+                      <div className="absolute bottom-8 left-8 right-8 z-20">
+                        <div className="w-16 h-16 rounded-full glass flex items-center justify-center mb-6 border border-white/20 text-primary">
+                          <Icon className="w-8 h-8" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  {/* Plus tard, nous remplacerons ceci par de vraies images */}
-                  <div className="absolute bottom-8 left-8 right-8 z-20">
-                    <div className="w-16 h-16 rounded-full glass flex items-center justify-center mb-6 border border-white/20">
-                      {service.icon}
+
+                  <div className="w-full lg:w-1/2">
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">{service.title}</h2>
+                    <p className="text-lg text-zinc-300 mb-8 leading-relaxed whitespace-pre-wrap">
+                      {service.description}
+                    </p>
+                    
+                    {service.price && (
+                      <div className="mb-10 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-bold">
+                        Tarif : {service.price}
+                      </div>
+                    )}
+
+                    <div>
+                      <Link href={`/contact?service=${service.id}`}>
+                        <Button className="py-6 px-8 text-lg">Demander un devis</Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Contenu */}
-              <div className="w-full lg:w-1/2">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">{service.title}</h2>
-                <p className="text-lg text-zinc-300 mb-8 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <h3 className="text-xl font-semibold mb-6 text-white">Ce qui est inclus :</h3>
-                <ul className="space-y-4 mb-10">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                      </div>
-                      <span className="text-zinc-400">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link href={`/contact?service=${service.id}`}>
-                  <Button className="py-6 px-8 text-lg">Demander un devis pour ce service</Button>
-                </Link>
-              </div>
-            </div>
-          ))}
+              );
+            })
+          )}
         </div>
       </section>
 
       {/* Section Équipement */}
       <section className="relative px-4 py-24 bg-secondary">
         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
-        
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Un Matériel <span className="text-gradient-gold">Haut de Gamme</span></h2>
             <p className="text-lg text-muted-foreground">
-              La qualité d'un événement dépend aussi de la fiabilité et de la performance du matériel utilisé. Je travaille exclusivement avec les meilleures marques de l'industrie de l'événementiel.
+              La qualité d'un événement dépend aussi de la fiabilité et de la performance du matériel utilisé.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {EQUIPMENT.map((equip, index) => (
               <div key={index} className="glass p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors">
