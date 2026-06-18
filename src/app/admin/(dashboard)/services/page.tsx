@@ -42,7 +42,6 @@ export default function AdminServicesPage() {
       title: '',
       description: '',
       icon: 'Star', // Icone par défaut
-      is_featured: false,
       price: '',
       display_order: services.length,
     });
@@ -77,20 +76,6 @@ export default function AdminServicesPage() {
     });
   };
 
-  const handleToggleFeatured = async (service: Service) => {
-    const supabase = createClient() as any;
-    const { error } = await supabase
-      .from('services')
-      .update({ is_featured: !service.is_featured })
-      .eq('id', service.id);
-      
-    if (error) {
-      toast.error("Erreur lors de la modification");
-    } else {
-      toast.success(service.is_featured ? "Retiré de l'accueil" : "Ajouté à l'accueil");
-      setServices(services.map(s => s.id === service.id ? { ...s, is_featured: !s.is_featured } : s));
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,7 +142,6 @@ export default function AdminServicesPage() {
                   <th className="px-6 py-4">Nom du Service</th>
                   <th className="px-6 py-4">Icône</th>
                   <th className="px-6 py-4">Prix (Optionnel)</th>
-                  <th className="px-6 py-4 text-center">Affiché sur l'Accueil</th>
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
@@ -175,20 +159,6 @@ export default function AdminServicesPage() {
                     </td>
                     <td className="px-6 py-4 text-primary font-mono text-xs">{service.icon}</td>
                     <td className="px-6 py-4">{service.price || <span className="text-zinc-600 italic">Non spécifié</span>}</td>
-                    <td className="px-6 py-4 text-center">
-                      <button 
-                        onClick={() => handleToggleFeatured(service)}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition-colors ${
-                          service.is_featured 
-                            ? 'bg-primary/20 text-primary border border-primary/30 hover:bg-red-500/20 hover:text-red-400 hover:border-red-500/30' 
-                            : 'bg-zinc-800 text-zinc-400 border border-white/10 hover:bg-emerald-500/20 hover:text-emerald-400 hover:border-emerald-500/30'
-                        }`}
-                        title={service.is_featured ? "Retirer de l'accueil" : "Mettre en avant sur l'accueil"}
-                      >
-                        <Star className={`w-3 h-3 ${service.is_featured ? 'fill-primary' : ''}`} />
-                        {service.is_featured ? 'OUI' : 'NON'}
-                      </button>
-                    </td>
                     <td className="px-6 py-4 text-right space-x-2">
                       <button 
                         onClick={() => handleOpenEdit(service)}
@@ -280,18 +250,6 @@ export default function AdminServicesPage() {
                     onChange={(e) => setEditingItem({...editingItem, display_order: parseInt(e.target.value) || 0})}
                     className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                   />
-                </div>
-                
-                <div className="flex flex-col justify-end pb-1">
-                  <label className="flex items-center gap-3 p-3 border border-white/10 rounded-xl bg-black/40 cursor-pointer hover:border-primary/50 transition-colors">
-                    <input 
-                      type="checkbox" 
-                      checked={editingItem.is_featured || false}
-                      onChange={(e) => setEditingItem({...editingItem, is_featured: e.target.checked})}
-                      className="w-5 h-5 accent-primary bg-black"
-                    />
-                    <span className="text-sm font-medium text-white">Afficher sur l'accueil</span>
-                  </label>
                 </div>
               </div>
 
