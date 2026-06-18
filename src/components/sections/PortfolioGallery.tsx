@@ -76,7 +76,7 @@ export function PortfolioGallery() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold"
           >
-            Mon <span className="text-gradient-gold">Portfolio</span>
+            Mon <span className="text-gradient-gold">Palmarès</span>
           </motion.h3>
         </div>
 
