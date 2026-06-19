@@ -22,15 +22,15 @@ export function Hero() {
 
         {/* 5. Reflets (Glows) et Étincelles */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Étincelles qui montent (masqué sur mobile pour perfs) */}
-          <div className="absolute inset-0 bg-sparkles animate-float-up opacity-40 mix-blend-screen hidden lg:block" />
+          {/* Étincelles qui montent */}
+          <div className="absolute inset-0 bg-sparkles animate-float-up opacity-40 mix-blend-screen" />
           
           {/* Grosse lueur dorée douce */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-gold mix-blend-screen hidden md:block"
+            className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-gold mix-blend-screen"
           />
         </div>
       </div>
