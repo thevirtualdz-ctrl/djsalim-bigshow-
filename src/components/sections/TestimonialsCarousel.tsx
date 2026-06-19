@@ -22,6 +22,7 @@ export function TestimonialsCarousel() {
   const [direction, setDirection] = useState(0);
 
   // Form states
+  const [showForm, setShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [rating, setRating] = useState(5);
@@ -112,7 +113,7 @@ export function TestimonialsCarousel() {
         <Quote className="w-full h-full text-white" />
       </div>
 
-      <div className="section-container relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -142,7 +143,7 @@ export function TestimonialsCarousel() {
             Aucun témoignage pour le moment. Soyez le premier à en laisser un !
           </div>
         ) : (
-          <div className="relative max-w-4xl mx-auto h-[400px] sm:h-[300px]">
+          <div className="relative max-w-4xl mx-auto h-[320px] sm:h-[300px]">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -224,7 +225,18 @@ export function TestimonialsCarousel() {
         )}
 
         {/* Formulaire d'avis */}
-        <div className="max-w-3xl mx-auto mt-12">
+        {!showForm ? (
+          <div className="text-center mt-8">
+            <Button 
+              variant="outline" 
+              className="bg-transparent border-white/20 hover:bg-white/5"
+              onClick={() => setShowForm(true)}
+            >
+              Laisser un témoignage
+            </Button>
+          </div>
+        ) : (
+          <div className="max-w-3xl mx-auto mt-12">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -322,6 +334,7 @@ export function TestimonialsCarousel() {
             </AnimatePresence>
           </motion.div>
         </div>
+        )}
       </div>
     </section>
   );
