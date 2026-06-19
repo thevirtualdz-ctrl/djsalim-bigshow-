@@ -41,7 +41,7 @@ export default function MusiquePage() {
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay; encrypted-media"
-                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdj-snake&color=%23d4af37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdj-snake&color=%23d4af37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
                 title="SoundCloud Player"
                 className="rounded-2xl"
               />
