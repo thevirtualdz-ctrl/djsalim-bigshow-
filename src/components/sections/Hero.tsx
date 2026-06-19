@@ -55,7 +55,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
           {/* Left: Text Content */}
-          <div className="text-left order-2 lg:order-1">
+          <div className="text-left order-1 lg:order-1 mt-8 lg:mt-0 z-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -111,7 +111,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-            className="order-1 lg:order-2 relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[460px] mx-auto flex justify-center lg:justify-end xl:justify-center"
+            className="order-2 lg:order-2 relative w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[460px] mx-auto flex justify-center lg:justify-end xl:justify-center z-10 opacity-60 lg:opacity-100 mt-8 lg:mt-0"
           >
             <div className="relative aspect-square w-full">
               {/* Soft Aura behind the element */}
