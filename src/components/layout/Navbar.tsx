@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Headphones } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { PUBLIC_NAV_ITEMS } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
 
@@ -38,11 +38,13 @@ export function Navbar() {
       <div className="section-container flex items-center justify-between">
         {/* Logo Premium */}
         <Link href="/" className="relative z-50 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
-          {/* Nouveau Logo S + Casque 100% CSS */}
-          <div className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-black/40 border border-primary/20 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(212,175,55,0.15)] flex-shrink-0">
-            <Headphones className="absolute top-1 md:top-1.5 w-4 h-4 md:w-5 md:h-5 text-primary opacity-90 drop-shadow-md" />
-            <span className="font-heading font-black text-2xl md:text-3xl text-gradient-gold mt-2.5 md:mt-3 drop-shadow-lg">S</span>
-          </div>
+          <Image 
+            src="/images/logo-sbs.png" 
+            alt="Salim BigShow Logo" 
+            width={48} 
+            height={48} 
+            className="w-10 h-10 md:w-12 md:h-12 object-contain mix-blend-screen" 
+          />
           <span className="font-heading font-bold text-lg sm:text-xl md:text-2xl tracking-wide truncate max-w-[150px] sm:max-w-none">
             <span className="text-gradient-gold">Salim</span> BigShow
           </span>
