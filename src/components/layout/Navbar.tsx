@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { PUBLIC_NAV_ITEMS } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
-import { StickyAudioPlayer } from '@/components/StickyAudioPlayer';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

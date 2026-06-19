@@ -23,6 +23,7 @@ export const SITE_CONFIG = {
 export const PUBLIC_NAV_ITEMS = [
   { label: 'Prestations', href: '/services' },
   { label: 'Palmarès', href: '/#portfolio' },
+  { label: 'Mes Sons', href: '/musique' },
   { label: 'À Propos', href: '/a-propos' },
 ] as const;
 

@@ -39,7 +39,7 @@ export function WhatsAppButton() {
         </div>
 
         {/* Texte explicite (Marketing) */}
-        <div className="flex flex-col hidden sm:flex">
+        <div className="flex flex-col">
           <span className="text-xs text-zinc-400 font-medium tracking-wide uppercase">Contact direct</span>
           <span className="text-sm font-bold text-white group-hover:text-[#25D366] transition-colors">
             Discuter sur WhatsApp
