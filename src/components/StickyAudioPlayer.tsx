@@ -21,8 +21,8 @@ export function StickyAudioPlayer() {
     <div 
       className={`fixed z-[100] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         isScrolled 
-          ? 'top-4 right-4 sm:right-6 lg:right-8' // Aligné en haut à droite pour s'intégrer visuellement
-          : 'top-[35vh] lg:top-[40vh] right-4 sm:right-8' // Flottant au milieu à droite
+          ? 'bottom-6 right-4 sm:bottom-auto sm:top-4 sm:right-6 lg:right-8' // En bas à droite sur mobile, en haut à droite sur desktop
+          : 'bottom-6 right-4 sm:bottom-auto sm:top-[35vh] lg:top-[40vh] sm:right-8' // En bas à droite sur mobile, au milieu à droite sur desktop
       }`}
     >
       <AnimatePresence mode="wait">

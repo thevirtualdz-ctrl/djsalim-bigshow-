@@ -46,7 +46,7 @@ export function Navbar() {
             height={48} 
             className="w-10 h-10 md:w-12 md:h-12 object-contain mix-blend-screen" 
           />
-          <span className="font-heading font-bold text-xl md:text-2xl tracking-wide hidden sm:block">
+          <span className="font-heading font-bold text-lg sm:text-xl md:text-2xl tracking-wide truncate max-w-[150px] sm:max-w-none">
             <span className="text-gradient-gold">Salim</span> BigShow
           </span>
         </Link>
