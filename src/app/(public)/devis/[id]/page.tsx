@@ -111,7 +111,7 @@ export default function DevisPage() {
 
   return (
     <main className="min-h-screen py-32 bg-background relative">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
+      <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
       
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 

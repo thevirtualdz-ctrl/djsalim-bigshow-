@@ -91,7 +91,7 @@ export default function ServicesPage() {
     <main className="min-h-screen pt-32 pb-24">
       {/* Header Section */}
       <section className="relative px-4 mb-20">
-        <div className="absolute top-[-20%] left-[20%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
+        <div className="hidden md:block absolute top-[-20%] left-[20%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="text-sm font-bold uppercase tracking-widest text-primary mb-3 block">Expertise</span>
@@ -164,7 +164,7 @@ export default function ServicesPage() {
 
       {/* Section Équipement */}
       <section className="relative px-4 py-24 bg-secondary">
-        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
+        <div className="hidden md:block absolute top-0 right-0 w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Un Matériel <span className="text-gradient-gold">Haut de Gamme</span></h2>

@@ -28,7 +28,7 @@ export function PortfolioPreview() {
 
   return (
     <section className="py-24 relative overflow-hidden" id="portfolio">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
+      <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
 
       <div className="section-container">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

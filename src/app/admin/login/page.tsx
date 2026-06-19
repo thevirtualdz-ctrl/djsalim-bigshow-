@@ -45,7 +45,7 @@ export default function AdminLogin() {
     <main className="min-h-screen flex items-center justify-center p-4 relative bg-[#0a0a0a] text-white">
       {/* Effets de fond */}
       <div className="absolute inset-0 bg-black/60 -z-20" />
-      <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] bg-primary/20 blur-[150px] rounded-full mix-blend-screen -z-10 pointer-events-none" />
+      <div className="hidden md:block absolute top-[20%] left-[30%] w-[40%] h-[40%] bg-primary/20 blur-[150px] rounded-full mix-blend-screen -z-10 pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">

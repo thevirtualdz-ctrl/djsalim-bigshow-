@@ -15,7 +15,7 @@ export function ContactCTA() {
       <div className="absolute inset-0 bg-secondary/50" />
       <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-5" />
       
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/20 rounded-full blur-[120px] -z-10 mix-blend-screen" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/20 rounded-full blur-[120px] -z-10 mix-blend-screen" />
 
       <div className="section-container relative z-10">
         <motion.div 

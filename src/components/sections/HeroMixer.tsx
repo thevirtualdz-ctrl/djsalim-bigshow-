@@ -22,7 +22,7 @@ export const HeroMixer = () => {
       {/* Background Ambience */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-secondary/80" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-gradient-to-tr from-primary/20 via-accent/10 to-transparent rounded-full blur-[120px] opacity-60 animate-pulse-gold" />
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-gradient-to-tr from-primary/20 via-accent/10 to-transparent rounded-full blur-[120px] opacity-60 animate-pulse-gold" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center z-10 relative">
@@ -107,7 +107,7 @@ export const HeroMixer = () => {
 
 const Deck = ({ rotate }: { rotate: any }) => (
   <div className="relative aspect-square w-full max-w-[280px] sm:max-w-[320px] mx-auto animate-float">
-    <div className="absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-full blur-[60px] opacity-20 -z-10" />
+    <div className="hidden md:block absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-full blur-[60px] opacity-20 -z-10" />
     
     <div className="absolute inset-0 rounded-full border border-white/5 bg-white/5 backdrop-blur-xl shadow-2xl flex items-center justify-center">
       <motion.div 

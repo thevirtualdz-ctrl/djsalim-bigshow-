@@ -46,7 +46,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-gold mix-blend-screen"
+            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-gold mix-blend-screen hidden md:block"
           />
         </div>
       </div>
@@ -115,7 +115,7 @@ export function Hero() {
           >
             <div className="relative aspect-square w-full">
               {/* Soft Aura behind the element */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/80 to-accent rounded-full blur-[90px] opacity-20 animate-pulse-gold -z-10" />
+              <div className="hidden md:block absolute inset-0 bg-gradient-to-tr from-primary/80 to-accent rounded-full blur-[90px] opacity-20 animate-pulse-gold -z-10" />
               
               {/* Bague Acier Extérieure (Plus fine, style acier brossé CDJ) */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#8a8a8a] via-[#e8e8e8] to-[#4a4a4a] shadow-[0_30px_60px_rgba(0,0,0,0.95),inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-4px_10px_rgba(0,0,0,0.8)] border border-[#ffffff]/40">
