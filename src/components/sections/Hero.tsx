@@ -11,23 +11,8 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-20">
-      {/* Arrière-plan animé (Image du DJ avec effets CSS "Pseudo-Vidéo") */}
+      {/* Arrière-plan animé (Effets CSS "Pseudo-Vidéo" - sans image) */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-        {/* 1. L'image du DJ avec effet Ken Burns sur desktop uniquement */}
-        <div className="absolute inset-[-5%] w-[110%] h-[110%] lg:animate-ken-burns">
-          <Image 
-            src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1600" 
-            alt="DJ Salim BigShow - Performance Live"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-60"
-          />
-        </div>
-        
-        {/* 2. Overlay Sombre & Dégradé pour garantir la lisibilité du texte (Gris foncé/Noir) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/60 to-transparent" />
-        
         {/* 3. Faisceaux d'éclairage dynamiques (Light Sweep doré) */}
         <div className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none">
           <div className="w-[200%] h-full absolute inset-y-0 left-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-light-sweep" />
