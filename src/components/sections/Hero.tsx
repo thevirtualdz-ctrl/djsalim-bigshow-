@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-20">
       {/* Arrière-plan animé (Image du DJ avec effets CSS "Pseudo-Vidéo") */}
-      <div className="absolute inset-0 -z-10 overflow-hidden bg-[#050505]">
+      <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
         {/* 1. L'image du DJ avec effet Ken Burns sur desktop uniquement */}
         <div className="absolute inset-[-5%] w-[110%] h-[110%] lg:animate-ken-burns">
           <Image 
