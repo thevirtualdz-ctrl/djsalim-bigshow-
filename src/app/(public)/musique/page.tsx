@@ -64,7 +64,7 @@ export default function MusiquePage() {
             <div className="p-2 sm:p-4">
               <iframe
                 style={{ borderRadius: '16px' }}
-                src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF?utm_source=generator&theme=0"
+                src="https://open.spotify.com/embed/playlist/7sZbq8QGyMnhKPcLJvCUFD?utm_source=generator&theme=0"
                 width="100%"
                 height="450"
                 frameBorder="0"
