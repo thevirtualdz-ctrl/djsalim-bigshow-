@@ -8,10 +8,10 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground border-t border-border/10 pt-16 pb-24">
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-12">
           
           {/* Brand Info */}
-          <div className="space-y-4">
+          <div className="col-span-2 md:col-span-1 space-y-4">
             <h3 className="font-heading font-bold text-2xl">
               <span className="text-gradient-gold">Salim</span> BigShow
             </h3>
@@ -52,17 +52,17 @@ export function Footer() {
           </div>
 
           {/* Légal */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Légal</h4>
-            <ul className="space-y-2 text-sm text-zinc-400">
-              <li><Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions Légales</Link></li>
-              <li><Link href="/cgv" className="hover:text-primary transition-colors">CGV</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+          <div>
+            <h4 className="font-heading font-semibold text-lg mb-6 text-white">Légal</h4>
+            <ul className="space-y-3">
+              <li><Link href="/mentions-legales" className="text-muted-foreground hover:text-primary transition-colors text-sm">Mentions Légales</Link></li>
+              <li><Link href="/cgv" className="text-muted-foreground hover:text-primary transition-colors text-sm">CGV</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="font-heading font-semibold text-lg mb-6 text-white">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
