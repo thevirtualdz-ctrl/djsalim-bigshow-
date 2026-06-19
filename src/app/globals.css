@@ -221,11 +221,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Évite le flash blanc au chargement rapide des images sur mobile */
-img {
-  background-color: rgb(var(--background));
-  color: transparent;
-}
 
 /* ============================================================
    6. UTILITIES PERSONNALISÉES
