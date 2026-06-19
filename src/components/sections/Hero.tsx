@@ -16,7 +16,7 @@ export function Hero() {
         {/* 1. L'image du DJ avec effet Ken Burns sur desktop uniquement */}
         <div className="absolute inset-[-5%] w-[110%] h-[110%] lg:animate-ken-burns">
           <Image 
-            src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=1600&q=80" 
+            src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1600" 
             alt="DJ Salim BigShow - Performance Live"
             fill
             priority
@@ -33,8 +33,7 @@ export function Hero() {
           <div className="w-[200%] h-full absolute inset-y-0 left-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-light-sweep" />
         </div>
 
-        {/* 4. Texture / Grain pour un effet "Live Club" premium */}
-        <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
+        {/* 4. Texture / Grain supprimé car fichier manquant */}
 
         {/* 5. Reflets (Glows) et Étincelles */}
         <div className="absolute inset-0 pointer-events-none">
