@@ -129,7 +129,7 @@ export function PortfolioGallery() {
                       {/* Background Image */}
                       <div className="absolute inset-0 bg-zinc-950">
                         <Image 
-                          src={item.image_url || '/images/placeholder.jpg'} 
+                          src={item.image_url || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80'} 
                           alt={item.title}
                           fill
                           sizes="(max-w-7xl) 33vw, 100vw"

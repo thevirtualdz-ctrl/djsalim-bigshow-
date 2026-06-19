@@ -77,9 +77,9 @@ export function AboutPreview() {
           >
             <div className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-border/50 shadow-gold-lg group">
               <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 transition-opacity duration-500 group-hover:opacity-0" />
-              <Image
-                src="/images/dj_corporate_v3.png"
-                alt="Portrait de DJ Salim"
+              <Image 
+                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80"
+                alt="DJ Salim BigShow en prestation premium"
                 fill
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
               />

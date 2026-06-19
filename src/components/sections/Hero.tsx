@@ -16,8 +16,8 @@ export function Hero() {
         {/* 1. L'image du DJ avec effet Ken Burns sur desktop uniquement */}
         <div className="absolute inset-[-5%] w-[110%] h-[110%] lg:animate-ken-burns">
           <Image 
-            src="/images/dj-bg.png" 
-            alt="DJ Salim en live"
+            src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=1600&q=80" 
+            alt="DJ Salim BigShow - Performance Live"
             fill
             priority
             sizes="100vw"

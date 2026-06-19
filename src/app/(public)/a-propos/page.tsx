@@ -31,8 +31,8 @@ export default function AboutPage() {
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden glass border border-white/10 relative p-2 shadow-2xl">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
                   <Image 
-                    src="/images/dj_corporate_v3.png" 
-                    alt="DJ Salim BigShow Pro" 
+                    src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" 
+                    alt="DJ Salim BigShow - Performance" 
                     fill 
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
