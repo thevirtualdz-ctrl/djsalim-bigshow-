@@ -38,7 +38,7 @@ export function Navbar() {
     >
       <div className="section-container flex items-center justify-between">
         {/* Logo Premium */}
-        <Link href="/" className="relative z-50 flex items-center gap-3">
+        <Link href="/" className="relative z-50 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
           <Image 
             src="/images/logo-sbs.png" 
             alt="Salim BigShow Logo" 
@@ -99,13 +99,24 @@ export function Navbar() {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 w-full bg-[#0a0a0f] border-t border-border/50 shadow-2xl py-6 px-4 md:hidden flex flex-col gap-4"
-            >
+            <>
+              {/* Overlay pour fermer le menu en cliquant à l'extérieur */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 top-[72px] z-40 bg-black/60 backdrop-blur-sm md:hidden h-screen"
+                onClick={() => setMobileMenuOpen(false)}
+              />
+              
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full left-0 w-full bg-[#0a0a0f] border-t border-border/50 shadow-2xl py-6 px-4 md:hidden flex flex-col gap-4 z-50"
+              >
               <ul className="flex flex-col gap-2">
                 {PUBLIC_NAV_ITEMS.map((item) => {
                   const isActive = pathname === item.href;
@@ -125,10 +136,11 @@ export function Navbar() {
                   );
                 })}
               </ul>
-              <Button asChild className="w-full mt-4" size="lg">
+              <Button asChild className="w-full mt-4" size="lg" onClick={() => setMobileMenuOpen(false)}>
                 <Link href="/contact">Demander un devis</Link>
               </Button>
             </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
