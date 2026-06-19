@@ -208,6 +208,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(var(--background));
+  color-scheme: dark;
 }
 
 body {
