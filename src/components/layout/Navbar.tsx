@@ -32,15 +32,22 @@ export function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md border-white/10 shadow-sm py-3' 
+          ? 'bg-black/95 md:bg-background/95 md:backdrop-blur-md border-white/10 shadow-sm py-3' 
           : 'bg-transparent border-transparent py-5'
       }`}
     >
       <div className="section-container flex items-center justify-between">
-        {/* Logo Textuel Premium */}
-        <Link href="/" className="relative z-50 flex items-center gap-2">
-          <span className="font-heading font-bold text-xl md:text-2xl tracking-wide">
-            <span className="text-gradient-gold">Salim</span> BigShow Pro
+        {/* Logo Premium */}
+        <Link href="/" className="relative z-50 flex items-center gap-3">
+          <Image 
+            src="/images/logo-sbs.png" 
+            alt="Salim BigShow Logo" 
+            width={48} 
+            height={48} 
+            className="w-10 h-10 md:w-12 md:h-12 object-contain mix-blend-screen" 
+          />
+          <span className="font-heading font-bold text-xl md:text-2xl tracking-wide hidden sm:block">
+            <span className="text-gradient-gold">Salim</span> BigShow
           </span>
         </Link>
 
@@ -97,7 +104,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 w-full glass-dark border-t border-border/50 shadow-2xl py-6 px-4 md:hidden flex flex-col gap-4"
+              className="absolute top-full left-0 w-full bg-[#0a0a0f] border-t border-border/50 shadow-2xl py-6 px-4 md:hidden flex flex-col gap-4"
             >
               <ul className="flex flex-col gap-2">
                 {PUBLIC_NAV_ITEMS.map((item) => {

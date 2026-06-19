@@ -1,16 +1,13 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSettings } from '@/components/providers/SettingsProvider';
 
 export function Hero() {
-  const { scrollY } = useScroll();
   const { settings, isLoading } = useSettings();
-  // Fait tourner l'image de 0 à 360 degrés sur 1000px de scroll
-  const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
 
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-20">
@@ -132,10 +129,7 @@ export function Hero() {
               <div className="absolute inset-[1.5%] rounded-full bg-[#080808] shadow-[0_0_15px_rgba(0,0,0,1),0_0_0_1px_rgba(255,255,255,0.05),inset_0_20px_30px_rgba(0,0,0,0.9)] flex items-center justify-center overflow-hidden">
                 
                 {/* 1. ROTATING LAYER: Base plastic & Dimples */}
-                <motion.div 
-                  style={{ rotate }}
-                  className="absolute inset-0 rounded-full bg-[#111]"
-                >
+                <div className="absolute inset-0 rounded-full bg-[#111] animate-spin-slow">
                    {/* Le cercle extérieur avec les crans (12 grands ronds + 3 petits points) */}
                    {Array.from({ length: 12 }).map((_, i) => {
                      const baseAngle = i * 30; // 360 degrés / 12 groupes
@@ -175,7 +169,7 @@ export function Hero() {
                        </div>
                      );
                    })}
-                </motion.div>
+                </div>
 
                 {/* 2. STATIC LIGHTING LAYER (Ne tourne pas avec la platine = effet 3D hyper réaliste) */}
                 <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_35%,rgba(215,175,60,0.05)_37.5%,transparent_40%,transparent_70%,rgba(215,175,60,0.05)_80%,rgba(215,175,60,0.2)_85%,rgba(255,225,120,0.5)_87.5%,rgba(215,175,60,0.2)_90%,rgba(215,175,60,0.05)_95%,transparent_100%)] pointer-events-none z-10 mix-blend-screen" />
@@ -193,15 +187,12 @@ export function Hero() {
                 <div className="absolute inset-[13%] rounded-full bg-gradient-to-br from-[#8a8a8a] via-[#e8e8e8] to-[#4a4a4a] shadow-[0_0_15px_rgba(0,0,0,0.9),inset_0_2px_4px_rgba(255,255,255,0.5)] z-10 pointer-events-none" />
 
                 {/* Inner Vinyl Platter */}
-                <motion.div 
-                  style={{ rotate }}
-                  className="absolute inset-[13.5%] rounded-full bg-[#111] shadow-[inset_0_20px_50px_rgba(0,0,0,0.9)] flex items-center justify-center overflow-hidden"
-                >
+                <div className="absolute inset-[13.5%] rounded-full bg-[#111] shadow-[inset_0_20px_50px_rgba(0,0,0,0.9)] flex items-center justify-center overflow-hidden animate-spin-slow">
                   {/* Vinyl grooves texture */}
                   <div className="absolute inset-0 rounded-full bg-[repeating-radial-gradient(circle_at_center,#050505_0px,#050505_2px,#111_3px,#111_4px)] opacity-60" />
                   {/* Conic light reflection on vinyl */}
                   <div className="absolute inset-0 bg-[conic-gradient(from_0deg,#222_0%,#555_25%,#111_50%,#555_75%,#222_100%)] opacity-30 mix-blend-screen" />
-                </motion.div>
+                </div>
 
                 {/* Center Display (LCD) - CDJ-1000/2000 style */}
                 <div className="relative w-[48%] aspect-square rounded-full border-[2px] border-[#050505] shadow-[0_10px_30px_rgba(0,0,0,0.8)] bg-black z-20 flex items-center justify-center overflow-hidden">
@@ -213,7 +204,7 @@ export function Hero() {
                   <div className="absolute inset-[8%] rounded-full border-[10px] border-[#020202] shadow-[inset_0_2px_10px_rgba(0,0,0,1)]" />
 
                   {/* Anneau rotatif sophistiqué : 3/4 de cercle de barres radiales (style CDJ) */}
-                  <motion.div style={{ rotate }} className="absolute inset-[10%] rounded-full">
+                  <div className="absolute inset-[10%] rounded-full animate-spin-slow">
                     {Array.from({ length: 48 }).map((_, i) => {
                       // 3/4 de cercle : on saute le quart inférieur (de la barre 18 à 30 par ex)
                       if (i > 17 && i < 31) return null;
@@ -228,15 +219,15 @@ export function Hero() {
                         </div>
                       );
                     })}
-                  </motion.div>
+                  </div>
                   
                   {/* Halo lumineux sous les barres */}
                   <div className="absolute inset-[10%] rounded-full border-[2px] border-[#d4af37]/20 shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
 
                   {/* Le marqueur de lecture rouge vif au milieu de la piste */}
-                  <motion.div style={{ rotate }} className="absolute inset-[10%] rounded-full">
+                  <div className="absolute inset-[10%] rounded-full animate-spin-slow">
                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[1px] w-[5px] h-[12px] bg-red-500 rounded-sm shadow-[0_0_12px_red]" />
-                  </motion.div>
+                  </div>
 
                   {/* Inner Silver Ring framing the logo */}
                   <div className="absolute inset-[28%] rounded-full bg-gradient-to-b from-[#f0f0f0] via-[#aaa] to-[#555] shadow-[0_5px_15px_rgba(0,0,0,0.9)] p-[2px]">

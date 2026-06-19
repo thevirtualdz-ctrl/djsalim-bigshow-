@@ -34,7 +34,7 @@ export function StickyAudioPlayer() {
              exit={{ opacity: 0, scale: 0.8 }}
              onClick={() => setIsExpanded(true)}
              className={`flex items-center gap-3 glass rounded-full border border-primary/30 hover:border-primary transition-all hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.15)] group ${
-               isScrolled ? 'px-3 py-2 sm:px-4 sm:py-2' : 'px-4 py-3 sm:px-6 sm:py-4 bg-black/40 backdrop-blur-md'
+               isScrolled ? 'px-3 py-2 sm:px-4 sm:py-2' : 'px-4 py-3 sm:px-6 sm:py-4 bg-black/90 md:bg-black/40 md:backdrop-blur-md'
              }`}
           >
              <div className="relative flex items-center justify-center">
@@ -48,15 +48,13 @@ export function StickyAudioPlayer() {
         ) : (
           <motion.div
             key="player"
-            initial={{ opacity: 0, scale: 0.9, y: isScrolled ? -10 : 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: isScrolled ? -10 : 20 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className={`glass border border-white/10 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl bg-black/80 flex flex-col w-[320px] sm:w-[380px] ${
-              isScrolled 
-                ? 'absolute top-[calc(100%+1rem)] right-0 origin-top-right' 
-                : 'relative origin-right'
-            }`}
+            className={`glass border border-white/10 rounded-2xl shadow-2xl overflow-hidden md:backdrop-blur-xl bg-black/90 md:bg-black/80 flex flex-col w-[320px] sm:w-[380px] ${
+              isScrolled ? 'max-h-[80px]' : 'max-h-[300px]'
+            } transition-all duration-500`}
           >
             {/* Header / Mini Player Bar */}
             <div className="px-5 py-4 flex items-center justify-between border-b border-white/5">
