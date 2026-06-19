@@ -21,12 +21,12 @@ export function Hero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-70 grayscale-[30%]"
+            className="object-cover object-center opacity-50 grayscale-[10%]"
           />
         </div>
         
         {/* 2. Overlay Sombre & Dégradé pour garantir la lisibilité du texte (Gris foncé/Noir) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/30 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/60 to-transparent" />
         
         {/* 3. Faisceaux d'éclairage dynamiques (Light Sweep doré) */}
         <div className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none">
