@@ -12,12 +12,12 @@ const brands = [
 
 export function TrustedBy() {
   return (
-    <section className="py-12 border-b border-border/50 bg-background/50">
-      <div className="section-container">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+    <section className="py-6 md:py-12 border-b border-border/50 bg-background/50">
+      <div className="container mx-auto px-4">
+        <p className="text-center text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-6">
           Là où je mets l'ambiance
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
           {brands.map((brand, index) => (
             <motion.div
               key={index}
