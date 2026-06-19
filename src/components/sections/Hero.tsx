@@ -55,12 +55,12 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
           {/* Left: Text Content */}
-          <div className="text-left order-1 lg:order-1 mt-8 lg:mt-0 z-20">
+          <div className="text-center lg:text-left order-1 lg:order-1 mt-8 lg:mt-0 z-20">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="inline-block mb-6 px-4 py-1.5 rounded-full glass border border-primary/30"
+              className="inline-block mx-auto lg:mx-0 mb-6 px-4 py-1.5 rounded-full glass border border-primary/30"
             >
               <span className="text-sm font-medium text-primary">
                 {!isLoading && (settings.hero_tagline || "DJ & Ingénieur Son — Disponible sur toute l'Algérie")}
@@ -86,7 +86,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-xl mb-10"
+              className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10"
             >
               {!isLoading && (settings.hero_subtitle || "Mariages, galas, soirées privées — je transforme chaque événement en une expérience sonore et visuelle dont vos invités parleront pendant des mois.")}
             </motion.p>
@@ -95,7 +95,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-              className="flex flex-col sm:flex-row items-center gap-4"
+              className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4"
             >
               <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-6 h-auto">
                 <Link href="/contact">Réserver ma date</Link>
