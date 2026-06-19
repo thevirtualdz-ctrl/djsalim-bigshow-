@@ -16,12 +16,15 @@ export function Hero() {
     <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-28 pb-20">
       {/* Arrière-plan animé (Image du DJ avec effets CSS "Pseudo-Vidéo") */}
       <div className="absolute inset-0 -z-10 overflow-hidden bg-[#050505]">
-        {/* 1. L'image du DJ avec effet Ken Burns (zoom et pan lent) */}
-        <div className="absolute inset-[-5%] w-[110%] h-[110%] animate-ken-burns">
-          <img 
+        {/* 1. L'image du DJ avec effet Ken Burns sur desktop uniquement */}
+        <div className="absolute inset-[-5%] w-[110%] h-[110%] lg:animate-ken-burns">
+          <Image 
             src="/images/dj-bg.png" 
             alt="DJ Salim en live"
-            className="w-full h-full object-cover object-center opacity-70 grayscale-[30%]"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-70 grayscale-[30%]"
           />
         </div>
         
@@ -38,8 +41,8 @@ export function Hero() {
 
         {/* 5. Reflets (Glows) et Étincelles */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Étincelles qui montent */}
-          <div className="absolute inset-0 bg-sparkles animate-float-up opacity-40 mix-blend-screen" />
+          {/* Étincelles qui montent (masqué sur mobile pour perfs) */}
+          <div className="absolute inset-0 bg-sparkles animate-float-up opacity-40 mix-blend-screen hidden lg:block" />
           
           {/* Grosse lueur dorée douce */}
           <motion.div 
@@ -106,12 +109,12 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Pioneer CDJ-2000 Nexus Style Jog Wheel */}
+          {/* Right: Pioneer CDJ-2000 Nexus Style Jog Wheel (Hidden on mobile for performance) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-            className="order-2 lg:order-2 relative w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[460px] mx-auto flex justify-center lg:justify-end xl:justify-center z-10 opacity-60 lg:opacity-100 mt-8 lg:mt-0"
+            className="hidden lg:flex order-2 lg:order-2 relative w-full lg:max-w-[460px] mx-auto justify-end xl:justify-center z-10 lg:opacity-100"
           >
             <div className="relative aspect-square w-full">
               {/* Soft Aura behind the element */}
