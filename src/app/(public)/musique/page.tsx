@@ -23,31 +23,6 @@ export default function MusiquePage() {
         </div>
 
         <div className="space-y-12">
-          {/* SoundCloud Section */}
-          <section className="glass p-1 rounded-3xl border border-white/10 shadow-2xl overflow-hidden bg-black/60">
-            <div className="p-6 sm:p-8 flex items-center gap-4 border-b border-white/5 bg-black/40">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                <Headphones className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold">Mixes Exclusifs</h2>
-                <p className="text-zinc-400">SoundCloud</p>
-              </div>
-            </div>
-            <div className="p-2 sm:p-4">
-              <iframe
-                width="100%"
-                height="450"
-                scrolling="no"
-                frameBorder="no"
-                allow="autoplay; encrypted-media"
-                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdj-snake&color=%23d4af37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
-                title="SoundCloud Player"
-                className="rounded-2xl"
-              />
-            </div>
-          </section>
-
           {/* Spotify Section */}
           <section className="glass p-1 rounded-3xl border border-white/10 shadow-2xl overflow-hidden bg-black/60">
             <div className="p-6 sm:p-8 flex items-center gap-4 border-b border-white/5 bg-black/40">
@@ -72,6 +47,31 @@ export default function MusiquePage() {
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
                 title="Spotify Player"
+              />
+            </div>
+          </section>
+
+          {/* SoundCloud Section */}
+          <section className="glass p-1 rounded-3xl border border-white/10 shadow-2xl overflow-hidden bg-black/60">
+            <div className="p-6 sm:p-8 flex items-center gap-4 border-b border-white/5 bg-black/40">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <Headphones className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold">Mixes Exclusifs</h2>
+                <p className="text-zinc-400">SoundCloud</p>
+              </div>
+            </div>
+            <div className="p-2 sm:p-4">
+              <iframe
+                width="100%"
+                height="450"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay; encrypted-media"
+                src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdj-snake&color=%23d4af37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
+                title="SoundCloud Player"
+                className="rounded-2xl"
               />
             </div>
           </section>
