@@ -115,6 +115,19 @@ export function PortfolioGallery() {
                   const isTall = index % 4 === 0 && !isLarge;
                   const spanClass = isLarge ? 'md:col-span-2 md:row-span-2' : isTall ? 'md:col-span-1 md:row-span-2' : 'md:col-span-1 md:row-span-1';
 
+                  const oldImagesMap: Record<string, string> = {
+                    '/images/dj_wedding.png': 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
+                    '/images/dj_wedding_real.png': 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
+                    '/images/dj_corporate.png': 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
+                    '/images/dj_corporate_real.png': 'https://images.unsplash.com/photo-1505236858219-8359eb29e325?w=800&q=80',
+                    '/images/dj_festival.png': 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+                    '/images/dj_festival_real.png': 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80',
+                    '/images/dj_wedding_v3.png': 'https://images.unsplash.com/photo-1530103862676-de8892b07439?w=800&q=80',
+                    '/images/dj_corporate_v3.png': 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&q=80'
+                  };
+
+                  const resolvedImage = oldImagesMap[item.image_url] || item.image_url || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80';
+
                   return (
                     <motion.div
                       layout
@@ -123,13 +136,13 @@ export function PortfolioGallery() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.4 }}
-                      onClick={() => setActiveMedia(item)}
+                      onClick={() => setActiveMedia({...item, image_url: resolvedImage})}
                       className={`group relative rounded-3xl overflow-hidden glass border border-white/10 cursor-pointer ${spanClass}`}
                     >
                       {/* Background Image */}
                       <div className="absolute inset-0 bg-zinc-950">
                         <Image 
-                          src={item.image_url || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80'} 
+                          src={resolvedImage} 
                           alt={item.title}
                           fill
                           sizes="(max-w-7xl) 33vw, 100vw"
