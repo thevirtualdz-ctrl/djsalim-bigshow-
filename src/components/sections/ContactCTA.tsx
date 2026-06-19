@@ -10,7 +10,7 @@ export function ContactCTA() {
   const { settings, isLoading } = useSettings();
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 md:py-24 relative overflow-hidden">
       {/* Background with gradient and blur */}
       <div className="absolute inset-0 bg-secondary/50" />
       <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-5" />

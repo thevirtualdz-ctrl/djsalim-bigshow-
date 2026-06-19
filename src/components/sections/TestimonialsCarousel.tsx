@@ -107,7 +107,7 @@ export function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-5 pointer-events-none">
         <Quote className="w-full h-full text-white" />
       </div>

@@ -56,7 +56,7 @@ export function PortfolioGallery() {
   );
 
   return (
-    <section className="py-24 relative overflow-hidden" id="portfolio">
+    <section className="py-12 md:py-24 relative overflow-hidden" id="portfolio">
       <div className="hidden md:block absolute top-0 left-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
       <div className="max-w-7xl mx-auto px-4">
         

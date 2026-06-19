@@ -9,7 +9,7 @@ export function ServicesPreview() {
   const { settings, isLoading: settingsLoading } = useSettings();
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-12 md:py-24 bg-background">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto">
           <motion.h2 

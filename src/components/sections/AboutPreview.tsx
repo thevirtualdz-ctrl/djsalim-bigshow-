@@ -9,7 +9,7 @@ export function AboutPreview() {
   const { settings, isLoading } = useSettings();
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-background relative overflow-hidden">
       <div className="hidden md:block absolute top-1/2 left-0 w-1/3 h-1/2 bg-primary/5 blur-[120px] -z-10 rounded-full" />
       
       <div className="section-container">

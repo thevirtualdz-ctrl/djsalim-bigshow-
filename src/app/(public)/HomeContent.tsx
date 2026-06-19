@@ -15,11 +15,11 @@ export default function HomeContent() {
     <main>
       <Hero />
       <TrustedBy />
-      <ServicesPreview />
-      <AboutPreview />
       <PortfolioGallery />
-      <TourSection />
+      <AboutPreview />
+      <ServicesPreview />
       <TestimonialsCarousel />
+      <TourSection />
       <ContactCTA />
     </main>
   );
