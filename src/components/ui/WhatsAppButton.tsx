@@ -24,7 +24,7 @@ export function WhatsAppButton() {
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center gap-2 md:gap-3 bg-zinc-900/90 backdrop-blur-md border border-[#25D366]/30 text-white pl-1.5 pr-4 py-1.5 md:pl-2 md:pr-5 md:py-2 rounded-full shadow-2xl hover:bg-zinc-800 transition-all duration-300 hover:scale-105 hover:border-[#25D366]"
+        className="group relative flex items-center gap-1.5 md:gap-3 bg-zinc-900/90 backdrop-blur-md border border-[#25D366]/30 text-white pl-1 pr-3 py-1.5 md:pl-2 md:pr-5 md:py-2 rounded-full shadow-2xl hover:bg-zinc-800 transition-all duration-300 hover:scale-105 hover:border-[#25D366]"
         aria-label="Contactez-nous sur WhatsApp"
       >
         {/* Bulle d'icône WhatsApp verte */}
@@ -40,8 +40,8 @@ export function WhatsAppButton() {
 
         {/* Texte explicite (Marketing) */}
         <div className="flex flex-col">
-          <span className="text-[10px] md:text-xs text-zinc-400 font-medium tracking-wide uppercase">Contact direct</span>
-          <span className="text-xs md:text-sm font-bold text-white group-hover:text-[#25D366] transition-colors">
+          <span className="text-[9px] md:text-xs text-zinc-400 font-medium tracking-normal md:tracking-wide uppercase">Contact direct</span>
+          <span className="text-[11px] md:text-sm font-bold text-white group-hover:text-[#25D366] transition-colors leading-tight">
             Discuter sur WhatsApp
           </span>
         </div>
