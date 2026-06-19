@@ -26,15 +26,15 @@ export function Hero() {
         </div>
         
         {/* 2. Overlay Sombre & Dégradé pour garantir la lisibilité du texte (Gris foncé/Noir) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/30 md:mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/30 mix-blend-multiply" />
         
         {/* 3. Faisceaux d'éclairage dynamiques (Light Sweep doré) */}
-        <div className="absolute inset-0 opacity-40 md:mix-blend-color-dodge pointer-events-none">
+        <div className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none">
           <div className="w-[200%] h-full absolute inset-y-0 left-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-light-sweep" />
         </div>
 
         {/* 4. Texture / Grain pour un effet "Live Club" premium */}
-        <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 md:mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
 
         {/* 5. Reflets (Glows) et Étincelles */}
         <div className="absolute inset-0 pointer-events-none">
